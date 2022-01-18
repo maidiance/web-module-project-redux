@@ -13,12 +13,12 @@ const FavoriteMovieList = (props) => {
     return (<div className="col-xs savedContainer">
         <h5>Favorite Movies</h5>
         {
-            favorites.map(movie=>{
+            props.displayFavorites && favorites.map(movie=>{
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
                         <span><span onClick={() => handleRemove(movie.id)} className="material-icons">remove_circle</span></span>
-                    </Link> 
+                    </Link>
                 </div>
             })
         }
@@ -27,7 +27,8 @@ const FavoriteMovieList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        favorites: state.favorite.favorites
+        favorites: state.favorite.favorites,
+        displayFavorites: state.favorite.displayFavorites
     }
 }
 
