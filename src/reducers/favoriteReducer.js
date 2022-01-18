@@ -18,10 +18,11 @@ const reducer = (state=initialState, action) => {
                 favorites: [...state.favorites, action.payload]
             }
         case REMOVE_FAVORITE:
+            console.log(action.payload);
             return {
                 ...state,
                 favorites: state.favorites.filter(movie => {
-                    movie.id != action.payload
+                    return(movie.id !== action.payload);
                 })
             }
         default:
