@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MovieHeader = (props) => {
     const appTitle = props.appTitle;
-    const displayFavorites = true;
+    const displayFavorites = props.displayFavorites;
     
     return(<div className="table-title">
         <div className="row">
@@ -22,7 +22,8 @@ const MovieHeader = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        appTitle: state.movie.appTitle
+        appTitle: state.movie.appTitle,
+        displayFavorites: state.favorite.displayFavorites
     }
 }
 
